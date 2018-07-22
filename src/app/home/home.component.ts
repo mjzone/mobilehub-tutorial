@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
       .auth()
       .signOut()
       .then(() => {
-        debugger;
         this._router.navigateByUrl("");
       })
       .catch(err => {
