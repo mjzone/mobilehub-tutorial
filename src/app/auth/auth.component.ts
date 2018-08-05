@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { AmplifyService } from "aws-amplify-angular/lib/providers/amplify.service";
+import { AmplifyService } from "aws-amplify-angular";
 import { Router } from "@angular/router";
 
 @Component({
@@ -15,6 +15,7 @@ export class AuthComponent implements OnInit {
       if (authState.state === "signedIn") {
         this._router.navigateByUrl("/home");
       }
+      return false;
     });
   }
 
