@@ -1,6 +1,4 @@
 --- !com.amazonaws.mobilehub.v0.Project 
-apps:
-  web: !com.amazonaws.mobilehub.v0.AppDO {}
 features:
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
@@ -28,5 +26,5 @@ features:
             require-symbols: false
             require-upper-case: false
           standard-attributes: '[]'
-name: myapp
+name: myapp-2018-08-06-04-40-17
 region: us-east-1
