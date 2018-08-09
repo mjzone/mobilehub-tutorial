@@ -10,8 +10,7 @@ import { UUID } from "angular2-uuid";
 })
 export class HomeComponent implements OnInit {
   username: string;
-  pendingTodos: string[];
-  completedTodos: string[];
+  todos: any[];
 
   constructor(private amplifyService: AmplifyService, private _router: Router) {
     this.amplifyService
@@ -22,20 +21,45 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  addTodo(todo, idx) {
-    if (todo.value.length) {
-      this.pendingTodos.push(todo.value);
-      todo.value = "";
+ async addTodo(text, idx) {
+    if (text.value.length) {
+      let item = {
+        todoId: UUID.UUID(),
+        todo: text.value,
+        status: "todo"
+      }
+      this.todos.push(item);
+      
+      try {
+      // posting to the database table
+      let payload = {
+        body: item
+      }
+      // calling the post api endpoint from amplify library
+      await this.amplifyService.api().post("mytodosCRUD", "/mytodos", payload);
+
+      text.value = "";
+
+      } catch(err){
+        console.log(err)
+      }
     }
   }
 
-  completeTodo(todo, idx) {
-    this.completedTodos.push(todo);
-    this.pendingTodos.splice(idx, 1);
+  async completeTodo(item, idx) {
+    item.status = "completed"
+    let payload = {
+      body: {
+        todoId: item.todoId,
+        todo: item.todo,
+        status: "completed"
+      }
+    }
+    await this.amplifyService.api().put("mytodosCRUD", "/mytodos", payload);
   }
 
-  deleteTodo(todo, idx) {
-    this.pendingTodos.splice(idx, 1);
+  deleteTodo(item, idx) {
+    this.todos.splice(idx, 1);
   }
 
   logOut() {
@@ -49,8 +73,14 @@ export class HomeComponent implements OnInit {
         return false;
       });
   }
+
+  loadTodos() {
+    return  this.amplifyService.api().get("mytodosCRUD", "/mytodos", null);
+  }
+
   ngOnInit() {
-    this.pendingTodos = [];
-    this.completedTodos = [];
+    this.loadTodos().then(todos => {
+      this.todos = todos;
+    });
   }
 }

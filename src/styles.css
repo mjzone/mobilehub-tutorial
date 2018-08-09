@@ -14,10 +14,6 @@ body {
   min-height: 80vh;
 }
 
-.appsync {
-  height: 65px;
-}
-
 .home {
   margin-bottom: 50px;
 }
@@ -106,9 +102,9 @@ body {
   margin-left: 10px;
 }
 
-.completed-items {
+.completed {
   color: #27ae60;
-  text-decoration: underline;
+  text-decoration: line-through;
 }
 
 .complete-todo-btn {
