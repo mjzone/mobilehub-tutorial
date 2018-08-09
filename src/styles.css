@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: sans-serif;
+}
 .container {
   display: flex;
   justify-content: center;
@@ -72,8 +76,8 @@
 
 .amplify-form-button {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #95a5a6;
+  border-color: #95a5a6;
 
   display: inline-block;
   font-weight: 400;
@@ -93,13 +97,50 @@
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.amplify-form-button:hover {
+.add-todo-btn {
   color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+  background-color: #f1c40f;
+  border-color: #f1c40f;
+  height: 28px;
+  font-size: 15px;
+  margin-left: 10px;
 }
 
-.amplify-greeting-sign-out {
+.completed-items {
+  color: #27ae60;
+  text-decoration: underline;
+}
+
+.complete-todo-btn {
+  color: #fff;
+  background-color: #27ae60;
+  border-color: #27ae60;
+  height: 28px;
+  font-size: 15px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.delete-todo-btn {
+  color: #fff;
+  background-color: #e74c3c;
+  border-color: #e74c3c;
+  height: 28px;
+  font-size: 15px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.todo-item {
+  font-size: 15px;
+  height: 20px;
+  width: 300px;
+}
+
+.amplify-form-button:hover {
+  color: #fff;
+  background-color: #95a5a6;
+  border-color: #95a5a6;
 }
 
 .amplify-footer {
