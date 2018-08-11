@@ -79,6 +79,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.todos = [];
     // this.loadTodos().then(todos => {
     //   this.todos = todos;
     // });
