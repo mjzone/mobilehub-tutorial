@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
         body: item
       }
       // calling the post api endpoint from amplify library
-      await this.amplifyService.api().post("mytodosCRUD", "/mytodos", payload);
+      //await this.amplifyService.api().post("mytodosCRUD", "/mytodos", payload);
 
       text.value = "";
 
@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
         status: "completed"
       }
     }
-    await this.amplifyService.api().put("mytodosCRUD", "/mytodos", payload);
+    //await this.amplifyService.api().put("mytodosCRUD", "/mytodos", payload);
   }
 
   deleteTodo(item, idx) {
@@ -79,8 +79,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadTodos().then(todos => {
-      this.todos = todos;
-    });
+    // this.loadTodos().then(todos => {
+    //   this.todos = todos;
+    // });
   }
 }
